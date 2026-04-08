@@ -1,8 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// GitHub Pages: https://hotjuun.github.io/Donation_guide/
+// GitHub Actions(Pages) 빌드 → '/Donation_guide/' (서브디렉토리)
+// Vercel/로컬 등 다른 환경 → '/' (루트)
+const isGitHubPages = process.env.GITHUB_ACTIONS === 'true'
+
 export default defineConfig({
   plugins: [react()],
-  base: '/Donation_guide/',
+  base: isGitHubPages ? '/Donation_guide/' : '/',
 })
