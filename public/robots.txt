@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hotjuun.github.io/Donation_guide/sitemap.xml
