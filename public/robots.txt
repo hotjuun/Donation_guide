@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hotjuun.github.io/Donation_guide/sitemap.xml
+Sitemap: https://gibu-guide.vercel.app/sitemap.xml
