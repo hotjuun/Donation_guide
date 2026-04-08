@@ -319,3 +319,14 @@ h1, h2, h3, p { margin: 0; }
 .footer-meta {
   margin-top: 20px; font-size: 11px; color: var(--text-mute);
 }
+.footer-link {
+  color: var(--text-sub);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-strong);
+  transition: color 0.15s, border-color 0.15s;
+}
+.footer-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}

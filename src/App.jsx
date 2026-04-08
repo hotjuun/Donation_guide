@@ -396,7 +396,11 @@ export default function App() {
             공익법인의 설립·운영에 관한 법률 ·
             기부금품의 모집 및 사용에 관한 법률
           </p>
-          <div className="footer-meta">© 기부재단 가이드 — 중학생을 위한 쉬운 안내서</div>
+          <div className="footer-meta">
+            © 기부재단 가이드 — 중학생을 위한 쉬운 안내서
+            {" · "}
+            <a href="/privacy.html" className="footer-link">개인정보처리방침</a>
+          </div>
         </div>
       </footer>
     </>
