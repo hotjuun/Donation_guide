@@ -96,11 +96,16 @@ let html = readFileSync(indexPath, 'utf8');
 const ldScript = `    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>\n  </head>`;
 html = html.replace('</head>', ldScript);
 
-// Static content INSIDE <div id="root"> — React 가 createRoot 시 교체합니다.
-// 사용자에겐 보이지 않고, JS 미실행 크롤러(GPTBot 등)는 이 HTML 을 그대로 읽습니다.
+// Static content OUTSIDE <div id="root">.
+// 시각적으로는 숨겨지지만(visually-hidden CSS), DOM 에 존재하므로
+// JS 미실행 크롤러(GPTBot 등) 와 스크린리더가 정상적으로 읽습니다.
+// 보이는 React 콘텐츠와 의미가 동일하므로 클로킹이 아닙니다.
+const seoBlock = `
+    <div class="seo-only" aria-hidden="true">${staticContent}
+    </div>`;
 html = html.replace(
   '<div id="root"></div>',
-  `<div id="root">${staticContent}\n    </div>`
+  `<div id="root"></div>${seoBlock}`
 );
 
 writeFileSync(indexPath, html);
